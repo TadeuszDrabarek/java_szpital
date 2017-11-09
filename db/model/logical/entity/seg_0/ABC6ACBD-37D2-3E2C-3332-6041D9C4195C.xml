@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="ABC6ACBD-37D2-3E2C-3332-6041D9C4195C" name="GrafikDetails">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>B286888B-D662-287E-14AA-2B315588068D</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDGrafikDetails" id="F58AC46C-6689-50B1-22D1-63FA9F7AABA5">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>88FE7A13-A382-F382-7202-F15B9133607D</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DzienTyg" id="13E0EDFA-C124-9AC1-2914-C907F4E5C1C1">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>539B43FE-E437-0EC1-1D3D-9F349010AE40</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDGrafiku" id="7116AC55-6926-8489-7BA9-7055B51C3AE8">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>DF738903-7FE9-BF53-DC0B-986B66D45DF4</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<referedAttribute>D1F883B8-DC4C-8A33-2F30-C8AD6DB741E4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDLekarza" id="B62B5C73-CBF4-378B-F712-872BA79F0B87">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>62C27296-F200-6B7C-F016-78535C2B5853</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<referedAttribute>FE767153-D22A-5C2C-DDEB-FC087B4D951A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Godzina od" id="E1A7CDF9-9C68-865E-C1CF-476CC91F3C3F">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>2362DCEE-A579-B2F6-4AEB-80383FABBF61</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Godzina do" id="890E4017-01CA-8423-EDAB-43F049398A2D">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>ADD6F889-11DB-23BE-334E-C9EF31139794</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDSpecjalnosci" id="49F7D2FA-1A68-039D-85BC-0A4E9CF8BF78">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>BFC7E8D6-064E-53F4-6173-9E7883511A4B</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<referedAttribute>812FCF17-0E42-B5E0-2183-0CB635266ABD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="75CE826B-C106-81DB-A9EB-DB8CAFC84089" name="GrafikDetails PK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>3CC91E68-4A4F-D3E8-DE0E-BF8912001AE1</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F58AC46C-6689-50B1-22D1-63FA9F7AABA5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

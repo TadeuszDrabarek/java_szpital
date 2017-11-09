@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5853D5AC-EF4C-EC46-C95D-5E4032006D47" containerWithKeyObject="5F6EACE3-1660-1AB9-A720-B3528EF53B8E" localFKIndex="C5411CC5-3966-B376-902D-E94FD4E4C2D5" name="Wizyty_Pajenci_FK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:35:13 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>Pajenci</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>409EF9DB-7053-078F-48CA-5DF67FF77A87</referredTableID>
+<keyObject>84FBB445-2B35-CD70-E885-8D4F7AD33458</keyObject>
+<referredKeyID>84FBB445-2B35-CD70-E885-8D4F7AD33458</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IDPacjenta</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

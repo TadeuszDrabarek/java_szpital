@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="21EBAA2D-8F3F-8A79-5175-174BF4DAA505" name="LekarzeSpecjalnosci">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:55:04 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDLS" id="5763D999-7126-3A32-4686-50FB1272D5C3">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:55:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IdLekarza" id="71A94433-DD74-EF7A-00FE-AA71ACC465E0">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:55:43 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F5FC173E-57BD-A5B0-975A-25375EB9B15F" referredColumn="CB4CD67A-E479-3A7A-9364-04076A88A4CB"/>
+</associations>
+</Column>
+<Column name="IdSpecjalnosci" id="DF6B486B-AE04-E752-E606-BAB6DD8116AF">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:55:58 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C240238F-EB98-B61D-FC20-1D09BA46B922" referredColumn="071E5F70-A947-4187-0114-2CB20D3704A8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="229AF7DF-9BCA-FFBE-00EA-E498A029E225" name="LekarzeSpecjalnosci_PK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:55:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5763D999-7126-3A32-4686-50FB1272D5C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="30EA105B-C694-4129-F890-7A787782492A" name="LekarzeSpecjalnosci_Lekarze_FK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:56:23 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71A94433-DD74-EF7A-00FE-AA71ACC465E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C73D2A97-EAAB-4AEC-0484-3022008577CC" name="LekarzeSpecjalnosci_Specjalnosci_FK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:56:23 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DF6B486B-AE04-E752-E606-BAB6DD8116AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

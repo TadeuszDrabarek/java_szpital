@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DF054913-BB82-9F00-7556-5A432F298DAB" name="Specjalnosci">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>458389C2-5DB4-BB32-B356-431028E693A4</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDSpecjalnosci" id="812FCF17-0E42-B5E0-2183-0CB635266ABD">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>071E5F70-A947-4187-0114-2CB20D3704A8</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NazwaSpecjalnosci" id="E5368A92-2B14-7D57-A2E0-275F50AFA408">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>AEC3C5DE-45D5-4366-E582-2ECA3A912803</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IsValid" id="E9476A99-5A47-60D8-AB58-192A984CA821">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>7145BB78-2081-D2AE-1A91-A4FEC5675BD7</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="33C5DB9B-3281-97D0-0961-B76D7BBA36EF" name="Specjalnosci PK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>E81CB922-A69D-782D-86D5-2BE67935DEB2</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>812FCF17-0E42-B5E0-2183-0CB635266ABD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

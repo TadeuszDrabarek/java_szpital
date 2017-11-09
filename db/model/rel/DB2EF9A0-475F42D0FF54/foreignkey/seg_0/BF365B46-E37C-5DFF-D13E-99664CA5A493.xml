@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BF365B46-E37C-5DFF-D13E-99664CA5A493" containerWithKeyObject="B286888B-D662-287E-14AA-2B315588068D" localFKIndex="B611AD99-0C3D-6A69-1CBF-DAEA28F3C726" name="GrafikDetails_LekarzeSpecjalnosci_FK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-09 19:57:12 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>LekarzeSpecjalnosci</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>21EBAA2D-8F3F-8A79-5175-174BF4DAA505</referredTableID>
+<keyObject>229AF7DF-9BCA-FFBE-00EA-E498A029E225</keyObject>
+<referredKeyID>229AF7DF-9BCA-FFBE-00EA-E498A029E225</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IDLS</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Wizyty_Pajenci_FK" directorySegmentName="seg_0" id="DAF96CCE-7B60-A453-1DF1-AA5307E8ED30">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>5853D5AC-EF4C-EC46-C95D-5E4032006D47</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<sourcePk>FA9E7641-ED11-62DA-A608-7C2A42C33EFF</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>BD5300E1-7AEC-9807-5CAB-9CFE19D524A2</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BFEC1975-A696-4FDD-A2E3-EEBF4BBFEF0C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

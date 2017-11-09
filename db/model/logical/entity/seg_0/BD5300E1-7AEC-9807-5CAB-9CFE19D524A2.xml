@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BD5300E1-7AEC-9807-5CAB-9CFE19D524A2" name="Pajenci">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>409EF9DB-7053-078F-48CA-5DF67FF77A87</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDPacjenta" id="1ECF5A8E-1FC3-115A-0598-372A61F42CBF">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>0A48216E-A5B1-60F7-4B4C-37855B9D4B5C</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Imie" id="30762E23-FEE5-B75A-742C-B46B5B592806">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>5E4BC1BB-45EC-85A4-5483-F2DB2EBD3AE4</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwisko" id="B4B13370-D532-1CC9-5771-92C7A3FC205D">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>31459165-15B8-757F-95AF-DB773BAE65F2</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PESEL" id="247BDE20-2AF0-3948-FCB9-4FB90C00CD2D">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>480BD847-C841-D192-F2BC-217DCA60F1E8</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>11,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Adres" id="DD65F06D-6A17-6DA4-ECAB-0D6FCF7D7A0C">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>A80A3BB9-925A-9C89-924E-42A1534BDB05</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FA9E7641-ED11-62DA-A608-7C2A42C33EFF" name="Pajenci PK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:40:41 UTC</createdTime>
+<generatorID>84FBB445-2B35-CD70-E885-8D4F7AD33458</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DB2EF9A0-6587-7589-F95C-475F42D0FF54" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1ECF5A8E-1FC3-115A-0598-372A61F42CBF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="409EF9DB-7053-078F-48CA-5DF67FF77A87" name="Pajenci">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:33:18 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPacjenta" id="0A48216E-A5B1-60F7-4B4C-37855B9D4B5C">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:33:45 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Imie" id="5E4BC1BB-45EC-85A4-5483-F2DB2EBD3AE4">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:33:59 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nazwisko" id="31459165-15B8-757F-95AF-DB773BAE65F2">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:34:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PESEL" id="480BD847-C841-D192-F2BC-217DCA60F1E8">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:34:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>11,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Adres" id="A80A3BB9-925A-9C89-924E-42A1534BDB05">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:34:47 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="84FBB445-2B35-CD70-E885-8D4F7AD33458" name="Pajenci_PK">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 19:33:45 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A48216E-A5B1-60F7-4B4C-37855B9D4B5C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

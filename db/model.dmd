@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="model" id="5E143D12-2EB1-0F6F-48CB-9EA165D5AA45" version="3.5">
+<createdBy>Hipo</createdBy>
+<createdTime>2017-11-06 18:57:21 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>5E143D12-2EB1-0F6F-48CB-9EA165D5AA45</designId>
+</OSDM_Design>
