@@ -1,0 +1,36 @@
+package szpital;
+
+import java.sql.SQLException;
+
+public class Lekarze {
+	
+	DB db;
+	
+	Lekarze(DB db){
+		this.db=db;
+	}
+
+	@Override
+	public String toString(){
+		String sql="select idlekarza, imie, nazwisko from lekarze where isvalid=1;";
+		String res="";
+		if (db.select(sql)){
+			res+=String.format("%5s|%15s|%20s\n", "ID","Imiê","Nazwisko");
+			res+="------------------------------------------\n";
+			try {
+				while (db.getRs().next()){
+					res+=String.format("%5s|%15s|%20s\n"
+							        , db.getRs().getString(1)
+									, db.getRs().getString(2)
+									, db.getRs().getString(3)
+							);
+				}
+			} catch (SQLException ex) {
+				res+="Wyst¹pi³ b³¹d !\n";
+			}
+			
+		} else
+			res+="B³¹d przy wykonaniu zapytania "+sql;
+		return res;
+	}
+}

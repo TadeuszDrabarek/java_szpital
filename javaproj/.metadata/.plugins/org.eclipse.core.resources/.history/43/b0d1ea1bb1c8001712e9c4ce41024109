@@ -1,0 +1,70 @@
+package szpital;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class App {
+	Scanner rl;
+	DB db;
+	
+	private String menu(String[] options){
+		System.out.println("Dostêpne opcje:");
+		for (String option : options){
+			System.out.println(option);
+		}		
+		return rl.nextLine();
+		
+	}
+	
+	
+	
+	App(){
+		rl=Tools.In();
+		
+		db=DB.createDBConnection("jdbc:mysql://localhost:3306/szpital?useSSL=false"
+				               , "root"
+				               , "root");
+		System.out.print("£¹czenie z baz¹ danych...");
+		if (db==null) {
+			System.out.println("B³¹d, wyjœcie z programu");
+			return;
+		}
+		System.out.println("OK");
+		
+		Lekarze L=new Lekarze(db);
+		
+		String menulevel="MAIN";
+		String[] mainoptions={"EXIT-Wyjœcie","LEKARZE-lista lekarzy"};
+		String[] lekarzeoptions={"LISTALEK-Lista lekarzy","DODLEK-Dodawanie lekarza","USUNLEK-usuwanie lekarza","MAIN-powrót do menu g³ownego"};
+		boolean exit=false;
+		String w;
+		String[] m={};
+		
+		do {
+			
+			switch (menulevel){
+			case "MAIN":m=mainoptions;break;
+			case "LEKARZE":m=lekarzeoptions;break;
+			}; 
+			w=this.menu(m).toUpperCase();
+			
+			switch(w){
+			case "EXIT": exit=true;break;
+			case "MAIN": menulevel="MAIN"; break;
+			case "LEKARZE": menulevel="LEKARZE"; break;
+			
+			case "LISTALEK": System.out.println(L);break;
+			default: System.out.println("Komenda nierozpoznana, spróbuj ponownie!"); break;
+			}
+		} while (!exit);
+		
+		db.closeConnection();
+		System.out.println("Koniec programu");
+		
+	}
+
+	public static void main(String[] args) {
+		new App();			
+	}
+
+}

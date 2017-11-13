@@ -1,0 +1,26 @@
+package szpital;
+
+import java.util.Scanner;
+
+public class App {
+	Scanner rl;
+	DB db;
+	
+	App(){
+		rl=Tools.In();
+		db=DB.createDBConnection("jdbc:mysql://localhost:3306/szpital?useSSL=false"
+				               , "root"
+				               , "root");
+		System.out.print("£¹czenie z baz¹ danych...");
+		if (db==null) {
+			System.out.println("B³¹d, wyjœcie z programu");
+			return;
+		}
+		System.out.println("OK");
+	}
+
+	public static void main(String[] args) {
+		new App();			
+	}
+
+}

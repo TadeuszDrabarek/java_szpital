@@ -1,0 +1,47 @@
+package szpital;
+
+import java.util.Scanner;
+
+public class App {
+	Scanner rl;
+	DB db;
+	
+	private String menu(){
+		System.out.println("Dostêpne opcje:");
+		System.out.println("EXIT - wyjœcie");
+		
+		return rl.nextLine();
+		
+	}
+	
+	App(){
+		rl=Tools.In();
+		db=DB.createDBConnection("jdbc:mysql://localhost:3306/szpital?useSSL=false"
+				               , "root"
+				               , "root");
+		System.out.print("£¹czenie z baz¹ danych...");
+		if (db==null) {
+			System.out.println("B³¹d, wyjœcie z programu");
+			return;
+		}
+		System.out.println("OK");
+		
+		boolean exit=false;
+		do {
+			String w=this.menu().toUpperCase();
+			switch(w){
+			case "EXIT": exit=true;break;
+			default: System.out.println("Komenda nierozpoznana, spróbuj ponownie!"); break;
+			}
+		} while (!exit);
+		
+		db.closeConnection();
+		System.out.println("Koniec programu");
+		
+	}
+
+	public static void main(String[] args) {
+		new App();			
+	}
+
+}

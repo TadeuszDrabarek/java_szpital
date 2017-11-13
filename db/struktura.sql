@@ -11,8 +11,10 @@ create table Lekarze (
 	idlekarza integer primary key auto_increment,
     imie varchar(50),
     nazwisko varchar(50),
-    idvalid integer
+    isvalid integer
 );
+
+alter table Lekarze change idvalid isvalid integer; 
 
 -- 2. Tabela Specjalności
 create table Specjalnosci (
