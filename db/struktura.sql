@@ -14,7 +14,7 @@ create table Lekarze (
     isvalid integer
 );
 
-alter table Lekarze change idvalid isvalid integer; 
+-- alter table Lekarze change idvalid isvalid integer; 
 
 -- 2. Tabela Specjalności
 create table Specjalnosci (
