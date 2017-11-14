@@ -16,11 +16,11 @@ public class Lekarze {
 	public String print(){
 		String res="";
 		
-		res+=String.format("%-5s|%-15s|%-20s\n", "ID","Imiê","Nazwisko");
+		res+=String.format("%5s|%15s|%20s\n", "ID","Imiê","Nazwisko");
 		res+="------------------------------------------\n";
 		try {
 			while (db.getRs().next()){
-				res+=String.format("%-5s|%-15s|%-20s\n"
+				res+=String.format("%5s|%15s|%20s\n"
 						        , db.getRs().getString(1)
 								, db.getRs().getString(2)
 								, db.getRs().getString(3)

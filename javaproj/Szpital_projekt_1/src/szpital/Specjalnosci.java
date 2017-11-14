@@ -3,12 +3,12 @@ package szpital;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Lekarze {
-	
+public class Specjalnosci {
+
 	DB db;
 	Scanner rl;
 	
-	Lekarze(DB db, Scanner rl){
+	Specjalnosci(DB db, Scanner rl){
 		this.db=db;
 		this.rl=rl;
 	}
@@ -16,14 +16,13 @@ public class Lekarze {
 	public String print(){
 		String res="";
 		
-		res+=String.format("%-5s|%-15s|%-20s\n", "ID","Imiê","Nazwisko");
+		res+=String.format("%-5s|%-36s\n", "ID","Nazwa specjalnoœci");
 		res+="------------------------------------------\n";
 		try {
 			while (db.getRs().next()){
-				res+=String.format("%-5s|%-15s|%-20s\n"
+				res+=String.format("%-5s|%-36s\n"
 						        , db.getRs().getString(1)
-								, db.getRs().getString(2)
-								, db.getRs().getString(3)
+								, db.getRs().getString(2)							
 						);
 			}
 		} catch (SQLException ex) {
@@ -35,7 +34,7 @@ public class Lekarze {
 
 	@Override
 	public String toString(){
-		String sql="select idlekarza, imie, nazwisko from lekarze where isvalid=1;";
+		String sql="select idspecjalnosci, nazwaspecjalnosci from specjalnosci where isvalid=1;";
 		if (db.select(sql)){
 			return this.print();
 		};
@@ -44,24 +43,24 @@ public class Lekarze {
 	
 	public boolean check(int id){
 		String sql=String.format(
-				"select * from Lekarze where idlekarza='%s' and isvalid=1;",
+				"select * from specjalnosci where idspecjalnosci='%s' and isvalid=1;",
 				id);
 		return db.select(sql) && (db.next());
 	}
 	
 	public boolean del(int id){
 		String sql=String.format(
-				"update Lekarze set isvalid=0 where idlekarza=%d; "
+				"update specjalnosci set isvalid=0 where idspecjalnosci=%d; "
 				,id);
 		
 		return db.execute(sql) && db.commit();
 	}
 	
 	public boolean ask_del(){
-		System.out.println("Usuwanie lekarza, lista lekarzy:");
+		System.out.println("Usuwanie specjalnosci, lista spacjalnosci:");
 		System.out.println(this);
 		do {
-			System.out.println("Podaj identyfikator lekarza do usuniêcia (<0 - przerwanie):");
+			System.out.println("Podaj identyfikator specjalnoœci do usuniêcia (<0 - przerwanie):");
 			int id=Tools.nextInt(this.rl, "Identyfikator musi byc liczb¹!");
 			if (id<0){
 				System.out.println("Przerwanie!");
@@ -81,25 +80,22 @@ public class Lekarze {
 		return true;
 	}
 	
-	public boolean add(String imie, String nazwisko){
+	public boolean add(String nazwaspecjalnosci){
 		String sql=String.format(
-				"insert into Lekarze(imie, nazwisko, isvalid) "
-				+ "values('%s','%s',1);"
-						,imie, nazwisko);
+				"insert into specjalnosci(nazwaspecjalnosci, isvalid) "
+				+ "values('%s',1);"
+						,nazwaspecjalnosci);
 		
 		return db.execute(sql) && db.commit();
 }
 	
 	public void ask_add(){
-		System.out.println("Dodawanie lekarza");
+		System.out.println("Dodawanie Specjalnoœci");
 		System.out.println("Na ka¿dym etapie mo¿esz nacisn¹æ ENTER w pustej linii, aby przerwaæ dodawanie");
-		System.out.println("Podaj imiê lekarze     :"); String imie=rl.nextLine();
-		if (!imie.equals("")) {
-			System.out.println("Podaj nazwisko lekarza :"); String nazwisko=rl.nextLine();
-			if (!nazwisko.equals("")) {
-				if (this.add(imie, nazwisko)) System.out.println("Dodano !"); else System.out.println("Wyst¹pi³ b³¹d!");
-				return;
-			}
+		System.out.println("Podaj nazwê secjalnoœci :"); String nazwaspecjalnosci=rl.nextLine();
+		if (!nazwaspecjalnosci.equals("")) {
+			if (this.add(nazwaspecjalnosci)) System.out.println("Dodano !"); else System.out.println("Wyst¹pi³ b³¹d!");
+			return;		
 		}
 		System.out.println("Przerwanie!");
 		return;

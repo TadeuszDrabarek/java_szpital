@@ -1,5 +1,6 @@
 package szpital;
 
+import java.security.spec.RSAKeyGenParameterSpec;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

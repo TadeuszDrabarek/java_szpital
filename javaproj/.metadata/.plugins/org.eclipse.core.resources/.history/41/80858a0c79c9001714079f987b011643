@@ -34,11 +34,11 @@ public class App {
 		LS H=new LS(db,rl,L,S);
 		
 		String menulevel="M";
-		String[] mainoptions={"EXIT, Q, ! -Wyjœcie","L-lekarze","P-Pacjenci", "S-Specjalnoœci", "H-Definiowanie specjalnoœci lekarzy"};
+		String[] mainoptions={"EXIT, Q, ! -Wyjœcie","L-lekarze","P-Pacjenci, S-Specjalnoœci, H-Drzypisanie lekarzy do specjalnoœci"};
 		String[] lekarzeoptions={"LL-Lista lekarzy","DL-Dodawanie lekarza","UL-Usuwanie lekarza","M-Powrót do menu g³ownego"};
 		String[] pacjencioptions={"LP-Lista pacjentów","DP-Dodawanie pacjenta","M-Powrót do menu g³ownego"};
-		String[] specjalnoscioptions={"LS-S³ownik specjalnoœci","DS-Dodawanie specjalnoœci","US-Usuwanie specjalnoœci","M-Powrót do menu g³ownego"};
-		String[] lsoptions={"LH-Lista specjalnoœci lekarzy","DH-Dopisanie specjalnoœci do lekarza","UH-Usuwanie spelnoœci lekarza","M-Powrót do menu g³ownego"};
+		String[] specjalnoscioptions={"LS-Lista specjalnoœci","DS-Dodawanie specjalnoœci","US-Usuwanie specjalnoœci","M-Powrót do menu g³ownego"};
+		String[] lsoptions={"LH-Lista przypisañ specjalnoœci do lekarzy","DH-Dodawanie przypisania specjalnoœci do lekarzy","UH-Usuwanie przypisania spelnoœci do lekarza","M-Powrót do menu g³ownego"};
 		boolean exit=false;
 		String w;
 		String[] m={};
@@ -74,10 +74,6 @@ public class App {
 			case "DS": S.ask_add(); break;
 			case "US": S.ask_del(); break;
 			case "LS": System.out.println(S);break;
-			
-			case "DH": H.ask_add(); break;
-			case "UH": H.ask_del(); break;
-			case "LH": System.out.println(H);break;
 			
 			default: System.out.println("Komenda nierozpoznana, spróbuj ponownie!"); break;
 			}
