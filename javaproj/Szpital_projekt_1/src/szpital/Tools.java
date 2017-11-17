@@ -24,6 +24,11 @@ public class Tools {
 		return days[day-1];
 	}
 	
+	public static String getDayNameDB(int day){
+		String[] days={"Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"};
+		return days[day-1];
+	}
+	
 	public static OutputStreamWriter openFileForWriteUTF_8(String fn) throws FileNotFoundException{
 		return new OutputStreamWriter(new FileOutputStream(fn), StandardCharsets.UTF_8);	
 	}

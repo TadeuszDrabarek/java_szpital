@@ -7,6 +7,7 @@ public class Pacjenci {
 
 	DB db;
 	Scanner rl;
+	int rowscount;
 	
 	Pacjenci(DB db, Scanner rl){
 		this.db=db;
@@ -15,11 +16,13 @@ public class Pacjenci {
 	
 	public String print(){
 		String res="";
+		rowscount=0;
 		
 		res+=String.format("%-5s|%-15s|%-20s|%-12s|%-50s\n", "ID","Imiê","Nazwisko","PESEL","Adres");
 		res+="---------------------------------------------------------------------------------------------------------\n";
 		try {
 			while (db.getRs().next()){
+				rowscount++;
 				res+=String.format("%-5s|%-15s|%-20s|%-12s|%-50s\n"
 						        , db.getRs().getString(1)
 								, db.getRs().getString(2)
@@ -59,7 +62,10 @@ public class Pacjenci {
 						,imie, nazwisko, PESEL, adres);
 		
 		return db.execute(sql) && db.commit();
-}
+	}
+	
+		
+	
 	
 	public void ask_add(){
 		System.out.println("Dodawanie pacjenta");
@@ -81,5 +87,50 @@ public class Pacjenci {
 		System.out.println("Przerwanie!");
 		return;
 				
+	}
+	
+	public int wybierz_pacjenta()
+	{
+		String pac;
+		int idp=0;
+		boolean exit=false;
+		do {
+			System.out.println("Wyszukaj pacjenta, podaj imiê i nazwisko lub PESEL [Enter=wyjœcie, % - wyszuka wszystkich]:");
+			pac=rl.nextLine().toUpperCase();
+			if (pac.equals("")) return -1;
+			pac="%"+pac.replace(" ", "%")+"%";
+			//System.out.println(pac);
+			if (find(pac)>0){
+				System.out.println("Podaj ID pacjenta z listy lub <0 w celu ponownego wyszukania");
+				do{
+					idp=Tools.nextInt(rl, "Identyfikator musi byæ liczb¹");
+					if (idp<0) break;
+					if (check(idp)) {
+						exit=true;
+						break;
+					}
+					System.out.println("Nieistniej¹cy ID pacjenta !");
+				} while(true);
+			} else {
+				System.out.println("Brak wyników, zmieñ kryteria wyszukiwania...");
+			}
+		} while (!exit);
+		return idp;
+	}
+	
+	public int find(String pac){
+		String sql=String.format("select b.idpacjenta, b.imie, b.nazwisko, b.pesel, b.adres from ("
+				+ "	select concat(upper(PESEL),' ',upper(imie),' ',upper(nazwisko)"
+				+ " ,' ',upper(imie),' ',upper(PESEL)) sklejak , idpacjenta"
+				+ "	from pacjenci "
+				+ ") a inner join pacjenci b on b.idpacjenta=a.idpacjenta"
+				+ " where a.sklejak like '%s' order by nazwisko, imie;",pac);
+		//System.out.println(sql);
+		if (db.select(sql)){
+			System.out.println(this.print());
+			return this.rowscount;
+		};
+		System.out.println("Coœ posz³o nie tak... :-(");
+		return 0;
 	}
 }

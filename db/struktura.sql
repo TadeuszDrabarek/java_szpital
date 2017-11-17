@@ -64,29 +64,25 @@ create table Pacjenci(
     adres varchar(200)
 );
 
+
 -- 7. Tabela z umówionymi wizytami
 create table Wizyty(
 	idwizyty integer primary key auto_increment,
     idpacjenta integer,
-    idgd integer,
-    opis text,
+    idls integer,
     data date,
+    czas time,
+    opis text,
+    id integer,
+    idunique varchar(20),
     dataumowienia date,
     czyodbyta integer default 0,
     FOREIGN KEY (idpacjenta) references Pacjenci(idpacjenta),
-    FOREIGN KEY (idgd) references GrafikDET(idgd)
+    FOREIGN KEY (idls) references LekarzeSpecjalnosci(idls)
 );
 
--- Tabela z datami
-create table daty as 
-select date, datediff(date,curdate()) as days_from_tomorrow, dayofweek(date) dayofweek from 
-(select adddate('1970-01-01',t4*10000 + t3*1000 + t2*100 + t1*10 + t0) date from
- (select 0 t0 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t0,
- (select 0 t1 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t1,
- (select 0 t2 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t2,
- (select 0 t3 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t3,
- (select 0 t4 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t4) v
-where date between '2017-01-01' and '2511-12-31';
+alter table Wizyty add unique wizyty_unique(idunique);
+
 
 -- Tabela z godzinami przyjęć
 create table czasy as 

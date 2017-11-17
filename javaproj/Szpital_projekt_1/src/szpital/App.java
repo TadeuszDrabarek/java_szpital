@@ -10,7 +10,8 @@ public class App {
 		System.out.println("Dostêpne opcje:");
 		for (String option : options){
 			System.out.println(option);
-		}		
+		}	
+		System.out.println("Wybierz :");
 		return rl.nextLine();
 		
 	}
@@ -32,13 +33,16 @@ public class App {
 		Pacjenci P=new Pacjenci(db,rl);
 		Specjalnosci S=new Specjalnosci(db,rl);
 		LS H=new LS(db,rl,L,S);
+		Wizyty W=new Wizyty(db,rl);
+		Grafik G=new Grafik(db,rl,L,S,P,W);
 		
 		String menulevel="M";
-		String[] mainoptions={"EXIT, Q, ! -Wyjœcie","L-lekarze","P-Pacjenci", "S-Specjalnoœci", "H-Definiowanie specjalnoœci lekarzy"};
+		String[] mainoptions={"EXIT, Q, ! -Wyjœcie","L-lekarze","P-Pacjenci", "S-Specjalnoœci", "H-Definiowanie specjalnoœci lekarzy","G-Grafik i wizyty"};
 		String[] lekarzeoptions={"LL-Lista lekarzy","DL-Dodawanie lekarza","UL-Usuwanie lekarza","M-Powrót do menu g³ownego"};
 		String[] pacjencioptions={"LP-Lista pacjentów","DP-Dodawanie pacjenta","M-Powrót do menu g³ownego"};
 		String[] specjalnoscioptions={"LS-S³ownik specjalnoœci","DS-Dodawanie specjalnoœci","US-Usuwanie specjalnoœci","M-Powrót do menu g³ownego"};
 		String[] lsoptions={"LH-Lista specjalnoœci lekarzy","DH-Dopisanie specjalnoœci do lekarza","UH-Usuwanie spelnoœci lekarza","M-Powrót do menu g³ownego"};
+		String[] grafikoptions={"GD-Grafik dzienny", "GL-grafik lekarza","UM-Umówienie wizyty","WD-Lista wizyt w dniu","WL-Lista wizyt lekarza","WP-Lista wizyt pacjenta", "WW-Wizyty wszystkie","M-Powrót do menu g³ownego"};
 		boolean exit=false;
 		String w;
 		String[] m={};
@@ -51,6 +55,7 @@ public class App {
 			case "P":m=pacjencioptions;break;
 			case "S":m=specjalnoscioptions;break;
 			case "H":m=lsoptions;break;
+			case "G":m=grafikoptions;break;
 			}; 
 			w=this.menu(m).toUpperCase();
 			
@@ -63,6 +68,7 @@ public class App {
 			case "P": menulevel="P"; break;
 			case "S": menulevel="S"; break;
 			case "H": menulevel="H"; break;
+			case "G": menulevel="G"; break;
 			
 			case "DL": L.ask_add(); break;
 			case "UL": L.ask_del(); break;
@@ -78,6 +84,20 @@ public class App {
 			case "DH": H.ask_add(); break;
 			case "UH": H.ask_del(); break;
 			case "LH": System.out.println(H);break;
+			
+			case "GD": G.grafik_na_dzien();break;
+			case "GL": G.grafik_lekarza();break;
+			case "UM": G.umowienie_wizyty(); break;
+			
+			case "WW": W.wizyty_wzystkie_um();break;
+			case "WL":{
+				int idl=L.wybierz();
+				if (idl>0) W.wizyty_lekarza_um(idl);
+			}
+			case "WP":{
+				int idp=P.wybierz_pacjenta();
+				if (idp>0) W.wizyty_pacjenta_um(idp);
+			}
 			
 			default: System.out.println("Komenda nierozpoznana, spróbuj ponownie!"); break;
 			}

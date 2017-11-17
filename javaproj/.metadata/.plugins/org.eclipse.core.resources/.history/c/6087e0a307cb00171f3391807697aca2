@@ -1,0 +1,45 @@
+package szpital;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Grafik {
+	DB db;
+	Scanner rl;
+	
+	Grafik(DB db, Scanner rl){
+		this.db=db;
+		this.rl=rl;
+	}
+	
+	
+	public void grafik_na_dzien(){
+		System.out.println("Grafik dzienny");
+		System.out.println("Podaj dzieñ tygodnia (1-niedziela, 7-sobota, 0-wyjœcie)");
+		int dzien=Tools.nextInt(rl, "Dzieñ musi byæ liczb¹", 0, 7);
+		if (dzien==0) return;
+		String sql=
+				"select lekarz, nazwaspecjalnosci, godziny from v_grafik_dzienny_l" 
+				+ String.format(" where dzientyg=%d ",dzien)
+				+ " order by nazwisko, imie, godziny";
+		System.out.println(sql);
+		if (db.select(sql)){
+			System.out.println(String.format("%-40s|%-20s|%-10s","Lekarz","Specjalnoœæ","Godziny pracy"));
+			System.out.println("---------------------------------------------------------------------");
+			try {
+				while (db.getRs().next()){
+					System.out.println(String.format("%-40s|%-20s|%-10s"
+							        , db.getRs().getString(1)
+									, db.getRs().getString(2)
+									, db.getRs().getString(3)								
+							));
+				}
+			} catch (SQLException ex) {
+				System.out.println("Wyst¹pi³ b³¹d !\n");
+			}
+		};
+		
+		return;
+				
+	}
+}

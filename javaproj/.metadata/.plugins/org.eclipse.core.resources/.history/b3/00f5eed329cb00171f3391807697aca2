@@ -1,0 +1,21 @@
+package szpital;
+
+import java.util.Scanner;
+
+public class Wizyty {
+	DB db;
+	Scanner rl;
+	
+	Wizyty(DB db, Scanner rl){
+		this.db=db;
+		this.rl=rl;
+	}
+	
+	public boolean add(){
+		return false;
+	}
+	
+	public boolean check(String uid){
+		return false;
+	}
+}

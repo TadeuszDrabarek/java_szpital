@@ -57,6 +57,23 @@ public class Lekarze {
 		return db.execute(sql) && db.commit();
 	}
 	
+	public int wybierz(){
+		System.out.println(this);
+		do {
+			System.out.println("Podaj identyfikator lekarza  (<0 - przerwanie):");
+			int id=Tools.nextInt(this.rl, "Identyfikator musi byc liczb¹!");
+			if (id<0){
+				System.out.println("Przerwanie!");
+				break;
+			}
+			if (check(id)) {				
+				return id;
+			}
+			System.out.println("Nie znaleziono takiego ID, spróbuj ponownie...");
+		} while (true);
+		return -1;
+	}
+	
 	public boolean ask_del(){
 		System.out.println("Usuwanie lekarza, lista lekarzy:");
 		System.out.println(this);

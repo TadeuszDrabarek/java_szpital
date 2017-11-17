@@ -1,0 +1,117 @@
+package szpital;
+
+import java.util.Scanner;
+
+public class App {
+	Scanner rl;
+	DB db;
+	
+	private String menu(String[] options){
+		System.out.println("Dostêpne opcje:");
+		for (String option : options){
+			System.out.println(option);
+		}	
+		System.out.println("Wybierz :");
+		return rl.nextLine();
+		
+	}
+		
+	App(){
+		rl=Tools.In();
+		
+		db=DB.createDBConnection("jdbc:mysql://localhost:3306/szpital?useSSL=false"
+				               , "root"
+				               , "root");
+		System.out.print("£¹czenie z baz¹ danych...");
+		if (db==null) {
+			System.out.println("B³¹d, wyjœcie z programu");
+			return;
+		}
+		System.out.println("OK");
+		
+		Lekarze L=new Lekarze(db,rl);
+		Pacjenci P=new Pacjenci(db,rl);
+		Specjalnosci S=new Specjalnosci(db,rl);
+		LS H=new LS(db,rl,L,S);
+		Wizyty W=new Wizyty(db,rl);
+		Grafik G=new Grafik(db,rl,L,S,P,W);
+		
+		String menulevel="M";
+		String[] mainoptions={"EXIT, Q, ! -Wyjœcie","L-lekarze","P-Pacjenci", "S-Specjalnoœci", "H-Definiowanie specjalnoœci lekarzy","G-Grafik i wizyty"};
+		String[] lekarzeoptions={"LL-Lista lekarzy","DL-Dodawanie lekarza","UL-Usuwanie lekarza","M-Powrót do menu g³ownego"};
+		String[] pacjencioptions={"LP-Lista pacjentów","DP-Dodawanie pacjenta","M-Powrót do menu g³ownego"};
+		String[] specjalnoscioptions={"LS-S³ownik specjalnoœci","DS-Dodawanie specjalnoœci","US-Usuwanie specjalnoœci","M-Powrót do menu g³ownego"};
+		String[] lsoptions={"LH-Lista specjalnoœci lekarzy","DH-Dopisanie specjalnoœci do lekarza","UH-Usuwanie spelnoœci lekarza","M-Powrót do menu g³ownego"};
+		String[] grafikoptions={"GD-Grafik dzienny", "GL-grafik lekarza","WD-Lista wizyt w dniu","UM-Umówienie wizyty","WD-Lista wizyt w dniu","WL-Lista wizyt lekarza","WP-Lista wizyt pacjenta", "WW-Wizyty wszystkie","M-Powrót do menu g³ownego"};
+		boolean exit=false;
+		String w;
+		String[] m={};
+		
+		do {
+			
+			switch (menulevel){
+			case "M":m=mainoptions;break;
+			case "L":m=lekarzeoptions;break;
+			case "P":m=pacjencioptions;break;
+			case "S":m=specjalnoscioptions;break;
+			case "H":m=lsoptions;break;
+			case "G":m=grafikoptions;break;
+			}; 
+			w=this.menu(m).toUpperCase();
+			
+			switch(w){
+			case "EXIT":   
+			case "!": 
+			case "Q": exit=true;break;
+			case "M": menulevel="M"; break;
+			case "L": menulevel="L"; break;
+			case "P": menulevel="P"; break;
+			case "S": menulevel="S"; break;
+			case "H": menulevel="H"; break;
+			case "G": menulevel="G"; break;
+			
+			case "DL": L.ask_add(); break;
+			case "UL": L.ask_del(); break;
+			case "LL": System.out.println(L);break;
+			
+			case "DP": P.ask_add(); break;			
+			case "LP": System.out.println(P);break;
+			
+			case "DS": S.ask_add(); break;
+			case "US": S.ask_del(); break;
+			case "LS": System.out.println(S);break;
+			
+			case "DH": H.ask_add(); break;
+			case "UH": H.ask_del(); break;
+			case "LH": System.out.println(H);break;
+			
+			case "GD": G.grafik_na_dzien();break;
+			case "GL": G.grafik_lekarza();break;
+			case "UM": G.umowienie_wizyty(); break;
+			
+			case "WW": W.wizyty_wzystkie_um();break;
+			case "WL":{
+				int idl=L.wybierz();
+				if (idl>0) W.wizyty_lekarza_um(idl);
+			}
+			case "WP":{
+				int idp=P.wybierz_pacjenta();
+				if (idp>0) W.wizyty_pacjenta_um(idp);
+			}
+			
+			default: System.out.println("Komenda nierozpoznana, spróbuj ponownie!"); break;
+			}
+		} while (!exit);
+		
+		db.closeConnection();
+		rl.close();
+		
+		System.out.println("Koniec programu");
+		
+	}
+
+	public static void main(String[] args) {
+		new App();			
+	}
+
+}

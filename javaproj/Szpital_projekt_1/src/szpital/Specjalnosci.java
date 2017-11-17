@@ -56,6 +56,24 @@ public class Specjalnosci {
 		return db.execute(sql) && db.commit();
 	}
 	
+	public int wybierz(){
+		System.out.println(this);
+		do {
+			System.out.println("Podaj identyfikator specjalnoœci  (<0 - przerwanie):");
+			int id=Tools.nextInt(this.rl, "Identyfikator musi byc liczb¹!");
+			if (id<0){
+				System.out.println("Przerwanie!");
+				break;
+			}
+			if (check(id)) {
+				//System.out.println("Znaleziono taki ID!");
+				return id;
+			}
+			System.out.println("Nie znaleziono takiego ID, spróbuj ponownie...");
+		} while (true);
+		return -1;
+	}
+	
 	public boolean ask_del(){
 		System.out.println("Usuwanie specjalnosci, lista spacjalnosci:");
 		System.out.println(this);

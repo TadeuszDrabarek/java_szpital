@@ -1,0 +1,95 @@
+package szpital;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Wizyty {
+	DB db;
+	Scanner rl;
+	
+	Wizyty(DB db, Scanner rl){
+		this.db=db;
+		this.rl=rl;
+	}
+	
+	public boolean umow_wizyte(int idp, String uniqueid){
+		String sql=String.format("select dodaj_wizyte(%d,'%s');", idp,uniqueid);
+		System.out.println(sql);
+		if (db.select(sql)){
+			try {
+				db.commit();
+				if (db.getRs().next()){
+					if (db.getRs().getInt(1)==1){
+						System.out.println("Wizyta umówiona !");
+						return true;
+					} else {
+						System.out.println("Wizyta nie mo¿e byæ umówiona :-(");
+						return false; 
+					}
+				} else{
+					System.out.println("Wyst¹pi³ problem z pobraniem wyniku operacjiz bazy danych...");
+				}
+					
+			} catch (SQLException ex) {
+				System.out.println("Wyst¹pi³ b³¹d !\n"+ex.getMessage());
+			}
+			return true;
+		} else {
+			System.out.println("Coœ posz³o nie tak ... :-(");
+			return false;
+		}
+			
+	}
+	
+	public boolean sprawdz(String uid){
+		String sql=String.format("select count(*) from wizyty where idunique='%s';", uid);
+		if (db.select(sql)){
+			try {
+				if (db.getRs().next()){
+					if (db.getRs().getInt(1)==0){
+						return true;
+					}
+				}
+			} catch (SQLException ex) {
+				System.out.println("Wyst¹pi³ b³¹d !\n"+ex.getMessage());
+			}
+		}
+		return false;
+	}
+	
+	public void print_wizyty_um(){
+		System.out.println(String.format("%-12s|%-12s|%-30s|%-12s|%-30s|%20s","Data","Czas","Pacjent","PESEL","Lekarz","Specjalnoœæ"));
+		System.out.println("-------------------------------------------------------------------------------------------------------------------");
+		try {
+			while (db.getRs().next()){
+				System.out.println(String.format("%-12s|%-12s|%-30s|%-12s|%-30s|%20s"
+						        , db.getRs().getString(1)
+								, db.getRs().getString(2)
+								, db.getRs().getString(3)+" "+db.getRs().getString(4)								
+								, db.getRs().getString(5)
+								, db.getRs().getString(6)
+								, db.getRs().getString(7)
+						));
+			}
+		} catch (SQLException ex) {
+			System.out.println("Wyst¹pi³ b³¹d !\n");
+		}
+	}
+	
+	public void wizyty_wzystkie_um(){
+		String sql="select data, czas, imie, nazwisko, pesel, lekarz, nazwaspecjalnosci from v_wizyty_umowione  order by data,czas,nazwisko,imie,idpacjenta;";
+		//System.out.println(sql);
+		if (db.select(sql)) print_wizyty_um();
+		
+	}
+	
+	public void wizyty_lekarza_um(int idl){
+		String sql=String.format("select data, czas, imie, nazwisko, pesel, lekarz, nazwaspecjalnosci "
+				+ " from v_wizyty_umowione  "
+				+ " where idlekarza=%d"
+				+ " order by data,czas,nazwisko,imie,idpacjenta;",idl);
+		//System.out.println(sql);
+		if (db.select(sql)) print_wizyty_um();
+		
+	}
+}

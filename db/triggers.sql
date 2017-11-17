@@ -6,11 +6,35 @@ begin
 end;//
 delimiter ;
 
+
+
 DELIMITER //
 create trigger beforeInsertWizyty
 before insert on Wizyty for each row
 begin
+	declare date_check integer;
+    declare time_check integer;
+    declare _idtime integer;
+    declare _iddate integer;
+    declare _idlek integer;
+    
+    select count(*) into date_check from daty where date =NEW.data;
+    if (date_check<1) then
+		signal sqlstate '45000' set message_text="Data spoza zakresu !";
+    end if;
+    
+    select iddate into _iddate from daty where date =NEW.data;
+    
+    select count(*) into time_check from czasy where godzina_od=NEW.czas;
+    if (time_check<1) then
+		signal sqlstate '45000' set message_text="Czas spoza zakresu !";
+    end if;
+    
+    select idtime into _idtime from czasy where godzina_od=NEW.czas;
+    
 	set NEW.dataumowienia=coalesce(NEW.dataumowienia,sysdate());
+    #set NEW.id=coalesce(NEW.id,_iddate*1024+_idtime);
+    
 end;//
 delimiter ;
 
@@ -49,3 +73,19 @@ begin
 end;//
 delimiter ;
 
+
+DELIMITER //
+create trigger beforeInsertGrafikDet
+before insert on Grafikdet for each row
+begin
+	
+    declare ile integer;
+    
+	select sprawdz_dyzur(NEW.idls, NEW.dzientyg , NEW.godzina_od, NEW.godzina_do)
+    into ile;
+		
+	if (ile>0) then
+		signal sqlstate '45000' set message_text="Wystąpił konflikt godzin !";
+	end if;
+end;//
+delimiter ;
